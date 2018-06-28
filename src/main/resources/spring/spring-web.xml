@@ -42,18 +42,18 @@
 	</mvc:interceptors>
 	 
  	 <aop:aspectj-autoproxy />
-  	 <bean id="controllerAop" class="com.xqls.common.aop.ControllerAOP" />
+<!--   	 <bean id="controllerAop" class="com.xqls.common.aop.ControllerAOP" />
 	 <aop:config>
 	   <aop:aspect id="myAop" ref="controllerAop">
 	     <aop:pointcut id="target"
 	       expression="execution(public com.xqls.common.beans.ResultBean *(..))" />
 	     <aop:around method="handlerControllerMethod" pointcut-ref="target" />
 	   </aop:aspect>
-	 </aop:config>
+	 </aop:config> -->
 	 
 
 	 
-      <bean id="dateConvert" class="com.xqls.common.util.DateConvert"/>
+     <bean id="dateConvert" class="com.dms.myssm.util.DateConvert"/>
 	 
 	 <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
         <property name="converters">
@@ -63,10 +63,7 @@
         </property>
     </bean>
     <mvc:annotation-driven conversion-service="conversionService"/>
-    
-    <bean class = "com.xqls.softlicence.InitStartUp"></bean>
-    
-    	 <!-- 避免IE在ajax请求时，返回json出现下载 -->
+    <!-- 避免IE在ajax请求时，返回json出现下载 -->
    <bean id="jacksonMessageConverter" class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">		
 		<property name="supportedMediaTypes">
 			<list>

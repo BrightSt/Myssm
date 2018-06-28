@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dms.myssm.dao.UserInfoMapper">
+  <resultMap id="BaseResultMap" type="com.dms.myssm.entity.UserInfo">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="user_name" jdbcType="VARCHAR" property="userName" />
+    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+    <result column="company_id" jdbcType="INTEGER" property="companyId" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="gender" jdbcType="VARCHAR" property="gender" />
+    <result column="birth" jdbcType="VARCHAR" property="birth" />
+    <result column="empy" jdbcType="VARCHAR" property="empy" />
+    <result column="email" jdbcType="VARCHAR" property="email" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="createid" jdbcType="DECIMAL" property="createid" />
+    <result column="create_date_time" jdbcType="TIMESTAMP" property="createDateTime" />
+    <result column="delflag" jdbcType="VARCHAR" property="delflag" />
+    <result column="company_code" jdbcType="VARCHAR" property="companyCode" />
+    <result column="idcard" jdbcType="VARCHAR" property="idcard" />
+    <result column="avatar" jdbcType="VARCHAR" property="avatar" />
+    <result column="departmen" jdbcType="INTEGER" property="departmen" />
+    <result column="dicode" jdbcType="VARCHAR" property="dicode" />
+    <result column="signmenu" jdbcType="VARCHAR" property="signmenu" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_name, password, status, company_id, name, gender, birth, empy, email, mobile, 
+    createid, create_date_time, delflag, company_code, idcard, avatar, departmen, dicode, 
+    signmenu
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from user_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.dms.myssm.entity.UserInfo">
+    insert into user_info (id, user_name, password, 
+      status, company_id, name, 
+      gender, birth, empy, 
+      email, mobile, createid, 
+      create_date_time, delflag, company_code, 
+      idcard, avatar, departmen, 
+      dicode, signmenu)
+    values (#{id,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR}, 
+      #{status,jdbcType=VARCHAR}, #{companyId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
+      #{gender,jdbcType=VARCHAR}, #{birth,jdbcType=VARCHAR}, #{empy,jdbcType=VARCHAR}, 
+      #{email,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{createid,jdbcType=DECIMAL}, 
+      #{createDateTime,jdbcType=TIMESTAMP}, #{delflag,jdbcType=VARCHAR}, #{companyCode,jdbcType=VARCHAR}, 
+      #{idcard,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, #{departmen,jdbcType=INTEGER}, 
+      #{dicode,jdbcType=VARCHAR}, #{signmenu,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.dms.myssm.entity.UserInfo">
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userName != null">
+        user_name,
+      </if>
+      <if test="password != null">
+        password,
+      </if>
+      <if test="status != null">
+        status,
+      </if>
+      <if test="companyId != null">
+        company_id,
+      </if>
+      <if test="name != null">
+        name,
+      </if>
+      <if test="gender != null">
+        gender,
+      </if>
+      <if test="birth != null">
+        birth,
+      </if>
+      <if test="empy != null">
+        empy,
+      </if>
+      <if test="email != null">
+        email,
+      </if>
+      <if test="mobile != null">
+        mobile,
+      </if>
+      <if test="createid != null">
+        createid,
+      </if>
+      <if test="createDateTime != null">
+        create_date_time,
+      </if>
+      <if test="delflag != null">
+        delflag,
+      </if>
+      <if test="companyCode != null">
+        company_code,
+      </if>
+      <if test="idcard != null">
+        idcard,
+      </if>
+      <if test="avatar != null">
+        avatar,
+      </if>
+      <if test="departmen != null">
+        departmen,
+      </if>
+      <if test="dicode != null">
+        dicode,
+      </if>
+      <if test="signmenu != null">
+        signmenu,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="userName != null">
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null">
+        #{birth,jdbcType=VARCHAR},
+      </if>
+      <if test="empy != null">
+        #{empy,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="createid != null">
+        #{createid,jdbcType=DECIMAL},
+      </if>
+      <if test="createDateTime != null">
+        #{createDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delflag != null">
+        #{delflag,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCode != null">
+        #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="departmen != null">
+        #{departmen,jdbcType=INTEGER},
+      </if>
+      <if test="dicode != null">
+        #{dicode,jdbcType=VARCHAR},
+      </if>
+      <if test="signmenu != null">
+        #{signmenu,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.dms.myssm.entity.UserInfo">
+    update user_info
+    <set>
+      <if test="userName != null">
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        password = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="companyId != null">
+        company_id = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="name != null">
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="gender != null">
+        gender = #{gender,jdbcType=VARCHAR},
+      </if>
+      <if test="birth != null">
+        birth = #{birth,jdbcType=VARCHAR},
+      </if>
+      <if test="empy != null">
+        empy = #{empy,jdbcType=VARCHAR},
+      </if>
+      <if test="email != null">
+        email = #{email,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        mobile = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="createid != null">
+        createid = #{createid,jdbcType=DECIMAL},
+      </if>
+      <if test="createDateTime != null">
+        create_date_time = #{createDateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="delflag != null">
+        delflag = #{delflag,jdbcType=VARCHAR},
+      </if>
+      <if test="companyCode != null">
+        company_code = #{companyCode,jdbcType=VARCHAR},
+      </if>
+      <if test="idcard != null">
+        idcard = #{idcard,jdbcType=VARCHAR},
+      </if>
+      <if test="avatar != null">
+        avatar = #{avatar,jdbcType=VARCHAR},
+      </if>
+      <if test="departmen != null">
+        departmen = #{departmen,jdbcType=INTEGER},
+      </if>
+      <if test="dicode != null">
+        dicode = #{dicode,jdbcType=VARCHAR},
+      </if>
+      <if test="signmenu != null">
+        signmenu = #{signmenu,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.dms.myssm.entity.UserInfo">
+    update user_info
+    set user_name = #{userName,jdbcType=VARCHAR},
+      password = #{password,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR},
+      company_id = #{companyId,jdbcType=INTEGER},
+      name = #{name,jdbcType=VARCHAR},
+      gender = #{gender,jdbcType=VARCHAR},
+      birth = #{birth,jdbcType=VARCHAR},
+      empy = #{empy,jdbcType=VARCHAR},
+      email = #{email,jdbcType=VARCHAR},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      createid = #{createid,jdbcType=DECIMAL},
+      create_date_time = #{createDateTime,jdbcType=TIMESTAMP},
+      delflag = #{delflag,jdbcType=VARCHAR},
+      company_code = #{companyCode,jdbcType=VARCHAR},
+      idcard = #{idcard,jdbcType=VARCHAR},
+      avatar = #{avatar,jdbcType=VARCHAR},
+      departmen = #{departmen,jdbcType=INTEGER},
+      dicode = #{dicode,jdbcType=VARCHAR},
+      signmenu = #{signmenu,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
